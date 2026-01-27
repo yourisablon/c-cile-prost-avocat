@@ -1,13 +1,32 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Header from '@/components/Header';
+import Hero from '@/components/Hero';
+import About from '@/components/About';
+import PracticeAreas from '@/components/PracticeAreas';
+import EmotionalCopy from '@/components/EmotionalCopy';
+import TrustCards from '@/components/TrustCards';
+import Reviews from '@/components/Reviews';
+import Contact from '@/components/Contact';
+import Footer from '@/components/Footer';
+import StickyCallButton from '@/components/StickyCallButton';
+import SEOHead from '@/components/SEOHead';
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <>
+      <SEOHead />
+      <Header />
+      <main>
+        <Hero />
+        <About />
+        <PracticeAreas />
+        <EmotionalCopy />
+        <TrustCards />
+        <Reviews />
+        <Contact />
+      </main>
+      <Footer />
+      <StickyCallButton />
+    </>
   );
 };
 
