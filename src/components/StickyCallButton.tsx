@@ -10,7 +10,7 @@ const StickyCallButton = () => {
       className="sticky-call-btn"
     >
       <a
-        href="tel:+33491000000"
+        href="tel:+33662525687"
         className="btn-gold w-full flex items-center justify-center gap-3 py-4 shadow-gold-lg"
       >
         <Phone className="w-5 h-5" />

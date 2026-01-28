@@ -58,21 +58,21 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-gold" />
-                <a href="tel:+33491000000" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
-                  04 91 00 00 00
+                <a href="tel:+33662525687" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
+                  06 62 52 56 87
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-gold" />
-                <a href="mailto:contact@cecile-prost-avocat.fr" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
-                  contact@cecile-prost-avocat.fr
+                <a href="mailto:avocat.prost@gmail.com" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
+                  avocat.prost@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
                 <span className="text-primary-foreground/70 text-sm">
-                  123 Rue de la République<br />
-                  13001 Marseille
+                  20 Cours Pierre Puget<br />
+                  13006 Marseille
                 </span>
               </li>
             </ul>
