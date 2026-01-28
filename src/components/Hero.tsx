@@ -49,7 +49,7 @@ const Hero = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <motion.a
-                href="tel:+33491000000"
+                href="tel:+33662525687"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="btn-gold flex items-center justify-center gap-3 text-lg px-8 py-4"
