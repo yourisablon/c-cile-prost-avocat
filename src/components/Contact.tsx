@@ -37,25 +37,25 @@ const Contact = () => {
     {
       icon: Phone,
       label: 'Téléphone',
-      value: '04 91 00 00 00',
-      href: 'tel:+33491000000',
+      value: '06 62 52 56 87',
+      href: 'tel:+33662525687',
     },
     {
       icon: Mail,
       label: 'Email',
-      value: 'contact@cecile-prost-avocat.fr',
-      href: 'mailto:contact@cecile-prost-avocat.fr',
+      value: 'avocat.prost@gmail.com',
+      href: 'mailto:avocat.prost@gmail.com',
     },
     {
       icon: MapPin,
       label: 'Adresse',
-      value: '123 Rue de la République, 13001 Marseille',
-      href: 'https://maps.google.com/?q=123+Rue+de+la+République+13001+Marseille',
+      value: '20 Cours Pierre Puget, 13006 Marseille',
+      href: 'https://maps.google.com/?q=20+Cours+Pierre+Puget+13006+Marseille',
     },
     {
       icon: Clock,
       label: 'Horaires',
-      value: 'Lun-Ven : 9h-19h',
+      value: 'Lun-Ven : 9h-17h30',
       href: null,
     },
   ];
@@ -200,7 +200,7 @@ const Contact = () => {
 
             {/* CTA Button */}
             <a
-              href="tel:+33491000000"
+              href="tel:+33662525687"
               className="btn-gold w-full flex items-center justify-center gap-3 text-lg py-4"
             >
               <Phone className="w-5 h-5" />
@@ -210,14 +210,14 @@ const Contact = () => {
             {/* Google Maps */}
             <div className="rounded-2xl overflow-hidden shadow-soft h-64">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2903.9!2d5.3697!3d43.2965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12c9c0c0b0b0b0b0%3A0x0!2sMarseille!5e0!3m2!1sfr!2sfr!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2904.0!2d5.3733!3d43.2897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12c9c0ed1f8f9b3b%3A0x0!2s20%20Cours%20Pierre%20Puget%2C%2013006%20Marseille!5e0!3m2!1sfr!2sfr!4v1706000000000"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Cabinet Cécile Prost Avocat Marseille"
+                title="Cabinet Cécile Prost Avocat - 20 Cours Pierre Puget, 13006 Marseille"
               />
             </div>
           </motion.div>

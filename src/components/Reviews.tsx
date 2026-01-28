@@ -103,7 +103,7 @@ const Reviews = () => {
           className="text-center mt-12"
         >
           <a
-            href="https://www.google.com/search?q=cecile+prost+avocat+marseille+avis"
+            href="https://g.page/r/CYourGooglePlaceId/review"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gold hover:text-gold-dark transition-colors inline-flex items-center gap-2"
