@@ -2,7 +2,8 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import PracticeAreas from '@/components/PracticeAreas';
-import EmotionalCopy from '@/components/EmotionalCopy';
+import Honoraires from '@/components/Honoraires';
+import ZoneIntervention from '@/components/ZoneIntervention';
 import TrustCards from '@/components/TrustCards';
 import Reviews from '@/components/Reviews';
 import Contact from '@/components/Contact';
@@ -19,7 +20,8 @@ const Index = () => {
         <Hero />
         <About />
         <PracticeAreas />
-        <EmotionalCopy />
+        <Honoraires />
+        <ZoneIntervention />
         <TrustCards />
         <Reviews />
         <Contact />
