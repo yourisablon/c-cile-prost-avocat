@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Scale, Users, Shield, Gavel, Heart, Home, ArrowRight } from 'lucide-react';
+import { Scale, Users, Shield, AlertTriangle, Heart, Baby, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const PracticeAreas = () => {
@@ -9,21 +9,23 @@ const PracticeAreas = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   const penalServices = [
-    { icon: Shield, label: 'Garde à vue' },
-    { icon: Gavel, label: 'Comparution immédiate' },
-    { icon: Scale, label: 'Défense prévenu / victime' },
-    { icon: Gavel, label: 'Tribunal correctionnel' },
-    { icon: Scale, label: 'Cour d\'assises' },
-    { icon: Shield, label: 'Aménagement de peine' },
+    { icon: AlertTriangle, label: 'Violences' },
+    { icon: Shield, label: 'Violences intrafamiliales' },
+    { icon: Users, label: 'Non représentation d\'enfant' },
+    { icon: AlertTriangle, label: 'Infractions sexuelles' },
+    { icon: Scale, label: 'Crimes intrafamiliaux' },
+  ];
+
+  const familyUrgencies = [
+    { icon: AlertTriangle, label: 'Je ne vois plus mes enfants', urgent: true },
+    { icon: Shield, label: 'Mes enfants sont en danger', urgent: true },
+    { icon: Shield, label: 'Ordonnance de protection', urgent: true },
   ];
 
   const familyServices = [
-    { icon: Heart, label: 'Divorce' },
-    { icon: Users, label: 'Séparation' },
-    { icon: Users, label: 'Garde d\'enfants' },
-    { icon: Home, label: 'Pension alimentaire' },
-    { icon: Shield, label: 'Violences conjugales' },
-    { icon: Users, label: 'Protection des mineurs' },
+    { icon: Heart, label: 'Divorce et garde d\'enfants' },
+    { icon: Baby, label: 'Reconnaissance de paternité' },
+    { icon: Users, label: 'Adoption' },
   ];
 
   const scrollToContact = () => {
@@ -40,9 +42,9 @@ const PracticeAreas = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-gold text-sm font-medium uppercase tracking-wider">Expertise</span>
+          <span className="text-accent text-sm font-medium uppercase tracking-wider">Expertise</span>
           <h2 className="section-title mt-2">Domaines d'intervention</h2>
-          <div className="w-16 h-1 bg-gold rounded-full mx-auto mt-4" />
+          <div className="w-16 h-1 bg-accent rounded-full mx-auto mt-4" />
         </motion.div>
 
         {/* Practice Areas Grid */}
@@ -60,14 +62,14 @@ const PracticeAreas = () => {
               </div>
               <div>
                 <h3 className="text-2xl font-serif font-medium text-foreground">Droit Pénal</h3>
-                <p className="text-muted-foreground text-sm">Défense et accompagnement</p>
+                <p className="text-muted-foreground text-sm">Avocat droit pénal Marseille</p>
               </div>
             </div>
 
-            <ul className="grid grid-cols-2 gap-4 mb-8">
+            <ul className="space-y-3 mb-8">
               {penalServices.map((service, index) => (
                 <li key={index} className="flex items-center gap-3">
-                  <service.icon className="w-4 h-4 text-gold flex-shrink-0" />
+                  <service.icon className="w-4 h-4 text-accent flex-shrink-0" />
                   <span className="text-sm text-foreground/80">{service.label}</span>
                 </li>
               ))}
@@ -103,14 +105,34 @@ const PracticeAreas = () => {
               </div>
               <div>
                 <h3 className="text-2xl font-serif font-medium text-foreground">Droit de la Famille</h3>
-                <p className="text-muted-foreground text-sm">Protection et médiation</p>
+                <p className="text-muted-foreground text-sm">Avocat droit de la famille Marseille</p>
               </div>
             </div>
 
-            <ul className="grid grid-cols-2 gap-4 mb-8">
+            {/* Urgences familiales */}
+            <div className="mb-6">
+              <h4 className="text-sm font-medium text-foreground mb-3 flex items-center gap-2">
+                <AlertTriangle className="w-4 h-4 text-accent" />
+                Urgences familiales
+              </h4>
+              <ul className="space-y-2 mb-4">
+                {familyUrgencies.map((service, index) => (
+                  <li key={index} className="flex items-center gap-3">
+                    <service.icon className="w-4 h-4 text-accent flex-shrink-0" />
+                    <span className="text-sm text-foreground/80 font-medium">{service.label}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-sm text-muted-foreground italic pl-7">
+                J'agis avec réactivité et rigueur pour faire évoluer la situation en urgence.
+              </p>
+            </div>
+
+            {/* Autres services famille */}
+            <ul className="space-y-2 mb-8">
               {familyServices.map((service, index) => (
                 <li key={index} className="flex items-center gap-3">
-                  <service.icon className="w-4 h-4 text-gold flex-shrink-0" />
+                  <service.icon className="w-4 h-4 text-accent flex-shrink-0" />
                   <span className="text-sm text-foreground/80">{service.label}</span>
                 </li>
               ))}

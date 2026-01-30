@@ -13,7 +13,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
-          alt="Cabinet d'avocat Marseille"
+          alt="Cabinet d'avocat Marseille - Maître Cécile Prost"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/60" />
@@ -21,30 +21,24 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 container-wide py-32">
-        <div className="max-w-3xl">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left - Main Title & CTA */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 border border-gold/20 mb-8">
-              <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-              <span className="text-sm font-medium text-gold">Barreau de Marseille</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-8">
+              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+              <span className="text-sm font-medium text-accent">Barreau de Marseille</span>
             </div>
 
-            {/* Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-foreground leading-tight mb-6">
+            {/* Title - SEO Optimized */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-foreground leading-tight mb-10">
               Avocate à Marseille
-              <span className="block text-gold">Droit Pénal & Droit de la Famille</span>
+              <span className="block text-accent">Droit pénal & Droit de la famille</span>
             </h1>
-
-            {/* Subtitle */}
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl">
-              Accompagnement humain, défense rigoureuse, écoute permanente.
-              <br />
-              <span className="text-foreground/80">Maître Cécile Prost, votre avocate à vos côtés.</span>
-            </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
@@ -66,6 +60,33 @@ const Hero = () => {
                 <Calendar className="w-5 h-5" />
                 <span>Prendre rendez-vous</span>
               </motion.button>
+            </div>
+          </motion.div>
+
+          {/* Right - Quote Block */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative"
+          >
+            <div className="bg-background/90 backdrop-blur-sm rounded-2xl p-8 lg:p-10 border border-border shadow-soft-lg">
+              {/* Quote Icon */}
+              <div className="absolute -top-4 -left-4 w-10 h-10 rounded-full gradient-gold flex items-center justify-center">
+                <span className="text-white text-2xl font-serif">"</span>
+              </div>
+
+              <div className="space-y-4 text-lg md:text-xl text-foreground leading-relaxed italic">
+                <p>Chaque dossier est une histoire humaine.</p>
+                <p>Je l'aborde avec <span className="text-accent font-medium not-italic">écoute</span>, <span className="text-accent font-medium not-italic">exigence</span> et <span className="text-accent font-medium not-italic">détermination</span>.</p>
+                <p className="font-medium">À vos côtés, sans compromis.</p>
+              </div>
+
+              {/* Signature */}
+              <div className="mt-8 pt-6 border-t border-border">
+                <p className="font-serif text-xl text-foreground">Maître Cécile Prost</p>
+                <p className="text-sm text-muted-foreground">Avocate au Barreau de Marseille</p>
+              </div>
             </div>
           </motion.div>
         </div>
