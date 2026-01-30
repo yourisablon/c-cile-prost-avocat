@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import PenalPage from "./pages/PenalPage";
 import FamilyPage from "./pages/FamilyPage";
 import MentionsLegales from "./pages/MentionsLegales";
+import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
             <Route path="/avocat-penal-marseille" element={<PenalPage />} />
             <Route path="/avocat-droit-famille-marseille" element={<FamilyPage />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
+            <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
