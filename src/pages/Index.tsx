@@ -10,6 +10,7 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import StickyCallButton from '@/components/StickyCallButton';
 import SEOHead from '@/components/SEOHead';
+import CookieBanner from '@/components/CookieBanner';
 
 const Index = () => {
   return (
@@ -28,6 +29,7 @@ const Index = () => {
       </main>
       <Footer />
       <StickyCallButton />
+      <CookieBanner />
     </>
   );
 };

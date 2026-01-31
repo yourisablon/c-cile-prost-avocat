@@ -93,7 +93,7 @@ const Footer = () => {
                 RGPD
               </Link>
               <a 
-                href="https://www.avocats-marseille.com" 
+                href="https://www.barreau-marseille.avocat.fr/fr/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-primary-foreground/50 hover:text-gold transition-colors text-sm"
