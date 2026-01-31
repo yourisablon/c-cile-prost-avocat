@@ -62,24 +62,24 @@ const Footer = () => {
             <h4 className="font-serif text-lg mb-4">Le Cabinet</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/#about" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
+                <a href="/#about" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
                   À propos
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/#honoraires" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
+                <a href="/#honoraires" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
                   Honoraires
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/#zone" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
+                <a href="/#zone" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
                   Zone d'intervention
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/#contact" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
+                <a href="/#contact" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
                   Contact
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
