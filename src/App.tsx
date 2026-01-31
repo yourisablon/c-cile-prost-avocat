@@ -10,6 +10,8 @@ import FamilyPage from "./pages/FamilyPage";
 import FAQPage from "./pages/FAQPage";
 import UrgenceEnfantsPage from "./pages/UrgenceEnfantsPage";
 import ViolencesConjugalesPage from "./pages/ViolencesConjugalesPage";
+import ArticlesListingPage from "./pages/ArticlesListingPage";
+import ArticlePage from "./pages/ArticlePage";
 import MentionsLegales from "./pages/MentionsLegales";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
 import NotFound from "./pages/NotFound";
@@ -30,6 +32,8 @@ const App = () => (
             <Route path="/faq-avocat-marseille" element={<FAQPage />} />
             <Route path="/avocat-urgence-enfants-marseille" element={<UrgenceEnfantsPage />} />
             <Route path="/avocat-violences-conjugales-marseille" element={<ViolencesConjugalesPage />} />
+            <Route path="/articles-juridiques-marseille" element={<ArticlesListingPage />} />
+            <Route path="/articles/:slug" element={<ArticlePage />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
