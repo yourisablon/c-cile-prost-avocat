@@ -21,6 +21,7 @@ const Header = () => {
     { href: '/#domaines', label: 'Domaines' },
     { href: '/avocat-penal-marseille', label: 'Droit Pénal' },
     { href: '/avocat-droit-famille-marseille', label: 'Droit Famille' },
+    { href: '/articles-juridiques-marseille', label: 'Articles' },
     { href: '/faq-avocat-marseille', label: 'FAQ' },
     { href: '/#contact', label: 'Contact' },
   ];

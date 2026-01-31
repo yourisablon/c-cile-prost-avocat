@@ -80,6 +80,14 @@ const Footer = () => {
                   Questions Fréquentes
                 </button>
               </li>
+              <li>
+                <button 
+                  onClick={() => handleExpertiseClick('/articles-juridiques-marseille')} 
+                  className="text-primary-foreground/70 hover:text-gold transition-colors text-sm text-left"
+                >
+                  Articles juridiques
+                </button>
+              </li>
             </ul>
           </div>
 
