@@ -1,8 +1,19 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Phone, Mail, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const navigate = useNavigate();
+
+  const handleExpertiseClick = (path: string) => {
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleCabinetClick = (anchor: string) => {
+    // Navigate to home page with anchor
+    window.location.href = `/${anchor}`;
+  };
 
   return (
     <footer className="bg-primary text-primary-foreground">
@@ -30,29 +41,44 @@ const Footer = () => {
             <h4 className="font-serif text-lg mb-4">Expertises</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/avocat-penal-marseille" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
+                <button 
+                  onClick={() => handleExpertiseClick('/avocat-penal-marseille')} 
+                  className="text-primary-foreground/70 hover:text-gold transition-colors text-sm text-left"
+                >
                   Droit Pénal Marseille
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/avocat-droit-famille-marseille" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
+                <button 
+                  onClick={() => handleExpertiseClick('/avocat-droit-famille-marseille')} 
+                  className="text-primary-foreground/70 hover:text-gold transition-colors text-sm text-left"
+                >
                   Droit de la Famille Marseille
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/avocat-violences-conjugales-marseille" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
+                <button 
+                  onClick={() => handleExpertiseClick('/avocat-violences-conjugales-marseille')} 
+                  className="text-primary-foreground/70 hover:text-gold transition-colors text-sm text-left"
+                >
                   Violences Conjugales
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/avocat-urgence-enfants-marseille" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
+                <button 
+                  onClick={() => handleExpertiseClick('/avocat-urgence-enfants-marseille')} 
+                  className="text-primary-foreground/70 hover:text-gold transition-colors text-sm text-left"
+                >
                   Urgence Enfants
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/faq-avocat-marseille" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
+                <button 
+                  onClick={() => handleExpertiseClick('/faq-avocat-marseille')} 
+                  className="text-primary-foreground/70 hover:text-gold transition-colors text-sm text-left"
+                >
                   Questions Fréquentes
-                </Link>
+                </button>
               </li>
             </ul>
           </div>
@@ -62,24 +88,36 @@ const Footer = () => {
             <h4 className="font-serif text-lg mb-4">Le Cabinet</h4>
             <ul className="space-y-2">
               <li>
-                <a href="/#about" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
+                <button 
+                  onClick={() => handleCabinetClick('#about')} 
+                  className="text-primary-foreground/70 hover:text-gold transition-colors text-sm text-left"
+                >
                   À propos
-                </a>
+                </button>
               </li>
               <li>
-                <a href="/#honoraires" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
+                <button 
+                  onClick={() => handleCabinetClick('#honoraires')} 
+                  className="text-primary-foreground/70 hover:text-gold transition-colors text-sm text-left"
+                >
                   Honoraires
-                </a>
+                </button>
               </li>
               <li>
-                <a href="/#zone" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
+                <button 
+                  onClick={() => handleCabinetClick('#zone')} 
+                  className="text-primary-foreground/70 hover:text-gold transition-colors text-sm text-left"
+                >
                   Zone d'intervention
-                </a>
+                </button>
               </li>
               <li>
-                <a href="/#contact" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
+                <button 
+                  onClick={() => handleCabinetClick('#contact')} 
+                  className="text-primary-foreground/70 hover:text-gold transition-colors text-sm text-left"
+                >
                   Contact
-                </a>
+                </button>
               </li>
             </ul>
           </div>
