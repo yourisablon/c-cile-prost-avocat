@@ -1,11 +1,17 @@
 import { Helmet } from 'react-helmet-async';
 
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
 interface SEOHeadProps {
   title?: string;
   description?: string;
   canonical?: string;
   type?: 'website' | 'article';
   keywords?: string;
+  faqItems?: FAQItem[];
 }
 
 const SEOHead = ({
@@ -14,20 +20,24 @@ const SEOHead = ({
   canonical = 'https://cecile-prost-avocat.fr',
   type = 'website',
   keywords = 'avocate Marseille, avocat pénal Marseille, avocat droit de la famille Marseille, avocat divorce Marseille, avocat garde à vue Marseille, cabinet avocat Marseille',
+  faqItems,
 }: SEOHeadProps) => {
-  const schemaMarkup = {
+  // Schema Attorney (more specific than LegalService)
+  const attorneySchema = {
     '@context': 'https://schema.org',
-    '@type': 'LegalService',
-    name: 'Cabinet Cécile Prost - Avocate à Marseille',
-    description: 'Avocate spécialisée en droit pénal et droit de la famille au Barreau de Marseille',
+    '@type': 'Attorney',
+    name: 'Maître Cécile Prost - Avocate à Marseille',
+    description: 'Avocate spécialisée en droit pénal et droit de la famille au Barreau de Marseille. Défense, divorce, garde d\'enfants, violences conjugales.',
     url: canonical,
     telephone: '+33662525687',
     email: 'avocat.prost@gmail.com',
+    image: 'https://cecile-prost-avocat.fr/avocat-portrait.jpg',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '20 Cours Pierre Puget',
+      streetAddress: '20 cours Pierre Puget',
       addressLocality: 'Marseille',
       postalCode: '13006',
+      addressRegion: 'Bouches-du-Rhône',
       addressCountry: 'FR',
     },
     geo: {
@@ -35,10 +45,20 @@ const SEOHead = ({
       latitude: 43.2897,
       longitude: 5.3733,
     },
-    areaServed: {
-      '@type': 'City',
-      name: 'Marseille',
-    },
+    areaServed: [
+      { '@type': 'City', name: 'Marseille' },
+      { '@type': 'AdministrativeArea', name: 'Bouches-du-Rhône' },
+      { '@type': 'AdministrativeArea', name: 'Var' },
+      { '@type': 'AdministrativeArea', name: 'Alpes-de-Haute-Provence' },
+    ],
+    knowsAbout: [
+      'Droit pénal',
+      'Droit de la famille',
+      'Divorce',
+      'Garde d\'enfants',
+      'Violences conjugales',
+      'Garde à vue',
+    ],
     priceRange: '€€',
     openingHoursSpecification: [
       {
@@ -52,11 +72,26 @@ const SEOHead = ({
       '@type': 'AggregateRating',
       ratingValue: '5',
       reviewCount: '47',
+      bestRating: '5',
     },
     sameAs: [
       'https://www.linkedin.com/in/cecile-prost-avocat/',
     ],
   };
+
+  // FAQ Schema if FAQ items provided
+  const faqSchema = faqItems && faqItems.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map(item => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  } : null;
 
   return (
     <Helmet>
@@ -84,10 +119,17 @@ const SEOHead = ({
       <meta name="geo.position" content="43.2965;5.3698" />
       <meta name="ICBM" content="43.2965, 5.3698" />
       
-      {/* Schema.org */}
+      {/* Schema.org Attorney */}
       <script type="application/ld+json">
-        {JSON.stringify(schemaMarkup)}
+        {JSON.stringify(attorneySchema)}
       </script>
+      
+      {/* Schema.org FAQ (if provided) */}
+      {faqSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema)}
+        </script>
+      )}
     </Helmet>
   );
 };

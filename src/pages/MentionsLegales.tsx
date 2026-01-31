@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import CookieBanner from '@/components/CookieBanner';
 
 const MentionsLegales = () => {
   const currentDate = new Date().toLocaleDateString('fr-FR', {
@@ -167,6 +168,7 @@ const MentionsLegales = () => {
       </main>
       
       <Footer />
+      <CookieBanner />
     </>
   );
 };
