@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="container-wide py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Logo & Description */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-full gradient-gold flex items-center justify-center">
                 <span className="text-white font-serif font-bold text-lg">CP</span>
@@ -19,15 +19,47 @@ const Footer = () => {
                 <p className="text-xs text-primary-foreground/60">Avocate au Barreau de Marseille</p>
               </div>
             </div>
-            <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-md">
+            <p className="text-primary-foreground/70 text-sm leading-relaxed">
               Avocate spécialisée en droit pénal et droit de la famille à Marseille. 
-              Accompagnement personnalisé et défense rigoureuse de vos droits.
+              Défense rigoureuse et accompagnement personnalisé.
             </p>
+          </div>
+
+          {/* Navigation */}
+          <div>
+            <h4 className="font-serif text-lg mb-4">Expertises</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/avocat-penal-marseille" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
+                  Droit Pénal Marseille
+                </Link>
+              </li>
+              <li>
+                <Link to="/avocat-droit-famille-marseille" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
+                  Droit de la Famille Marseille
+                </Link>
+              </li>
+              <li>
+                <Link to="/avocat-violences-conjugales-marseille" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
+                  Violences Conjugales
+                </Link>
+              </li>
+              <li>
+                <Link to="/avocat-urgence-enfants-marseille" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
+                  Urgence Enfants
+                </Link>
+              </li>
+              <li>
+                <Link to="/faq-avocat-marseille" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
+                  Questions Fréquentes
+                </Link>
+              </li>
+            </ul>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-serif text-lg mb-4">Navigation</h4>
+            <h4 className="font-serif text-lg mb-4">Le Cabinet</h4>
             <ul className="space-y-2">
               <li>
                 <Link to="/#about" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
@@ -35,13 +67,13 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/avocat-penal-marseille" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
-                  Droit Pénal
+                <Link to="/#honoraires" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
+                  Honoraires
                 </Link>
               </li>
               <li>
-                <Link to="/avocat-droit-famille-marseille" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
-                  Droit de la Famille
+                <Link to="/#zone" className="text-primary-foreground/70 hover:text-gold transition-colors text-sm">
+                  Zone d'intervention
                 </Link>
               </li>
               <li>
@@ -70,12 +102,15 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
-                <span className="text-primary-foreground/70 text-sm">
-                  20 Cours Pierre Puget<br />
+                <address className="text-primary-foreground/70 text-sm not-italic">
+                  20 cours Pierre Puget<br />
                   13006 Marseille
-                </span>
+                </address>
               </li>
             </ul>
+            <p className="text-primary-foreground/50 text-xs mt-4">
+              Interventions : Bouches-du-Rhône (13), Var (83), Alpes-de-Haute-Provence (04)
+            </p>
           </div>
         </div>
 
@@ -83,7 +118,7 @@ const Footer = () => {
         <div className="border-t border-primary-foreground/10 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-primary-foreground/50 text-sm">
-              © {currentYear} Cabinet Cécile Prost. Tous droits réservés.
+              © {currentYear} Cabinet Cécile Prost – Avocate à Marseille. Tous droits réservés.
             </p>
             <div className="flex items-center gap-6">
               <Link to="/mentions-legales" className="text-primary-foreground/50 hover:text-gold transition-colors text-sm">

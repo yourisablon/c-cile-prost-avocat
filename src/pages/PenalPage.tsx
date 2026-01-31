@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StickyCallButton from '@/components/StickyCallButton';
+import CookieBanner from '@/components/CookieBanner';
 import SEOHead from '@/components/SEOHead';
 
 const PenalPage = () => {
@@ -86,9 +87,9 @@ const PenalPage = () => {
                 Disponibilité 24h/24 pour les urgences (garde à vue, comparution immédiate).
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="tel:+33491000000" className="btn-gold flex items-center justify-center gap-3">
+                <a href="tel:+33662525687" className="btn-gold flex items-center justify-center gap-3">
                   <Phone className="w-5 h-5" />
-                  Urgence : 04 91 00 00 00
+                  Urgence : 06 62 52 56 87
                 </a>
                 <button onClick={scrollToContact} className="btn-gold-outline flex items-center justify-center gap-3">
                   Prendre rendez-vous
@@ -144,7 +145,7 @@ const PenalPage = () => {
               je suis à vos côtés pour défendre vos droits.
             </p>
             <a
-              href="tel:+33491000000"
+              href="tel:+33662525687"
               className="inline-flex items-center gap-3 bg-white text-foreground font-medium px-8 py-4 rounded-full hover:shadow-lg transition-all"
             >
               <Phone className="w-5 h-5" />
@@ -156,6 +157,7 @@ const PenalPage = () => {
 
       <Footer />
       <StickyCallButton />
+      <CookieBanner />
     </>
   );
 };
