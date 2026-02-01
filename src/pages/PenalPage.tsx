@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Scale, Shield, Gavel, AlertTriangle, Clock, FileText, Phone, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StickyCallButton from '@/components/StickyCallButton';
@@ -55,8 +55,16 @@ const PenalPage = () => {
     { label: 'Cour d\'assises', value: '3', suffix: 'dossiers plaidés' },
   ];
 
+  const navigate = useNavigate();
+  
   const scrollToContact = () => {
-    window.location.href = '/#contact';
+    navigate('/');
+    setTimeout(() => {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   };
 
   return (

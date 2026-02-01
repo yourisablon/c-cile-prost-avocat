@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Users, Heart, Shield, Baby, FileText, Phone, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StickyCallButton from '@/components/StickyCallButton';
@@ -61,8 +61,16 @@ const FamilyPage = () => {
     { label: 'Dossiers plaidés', value: '+100', suffix: 'devant le JAF' },
   ];
 
+  const navigate = useNavigate();
+  
   const scrollToContact = () => {
-    window.location.href = '/#contact';
+    navigate('/');
+    setTimeout(() => {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   };
 
   return (
