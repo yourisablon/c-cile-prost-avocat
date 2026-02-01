@@ -103,7 +103,7 @@ const Reviews = () => {
           className="text-center mt-12"
         >
           <a
-            href="https://g.page/r/CYourGooglePlaceId/review"
+            href="https://www.google.com/maps?cid=3909159312687335107"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gold hover:text-gold-dark transition-colors inline-flex items-center gap-2"
