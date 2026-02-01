@@ -1,4 +1,4 @@
-import { useParams, Link, Navigate } from 'react-router-dom';
+import { useParams, Link, Navigate, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Phone, MapPin, ArrowLeft, Clock, Scale } from 'lucide-react';
 import Header from '@/components/Header';
@@ -14,6 +14,17 @@ import { getArticleBySlug, categoryLabels } from '@/data/articles';
 const ArticlePage = () => {
   const { slug } = useParams<{ slug: string }>();
   const article = slug ? getArticleBySlug(slug) : undefined;
+  const navigate = useNavigate();
+
+  const scrollToContact = () => {
+    navigate('/');
+    setTimeout(() => {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
 
   if (!article) {
     return <Navigate to="/articles-juridiques-marseille" replace />;
@@ -199,8 +210,8 @@ const ArticlePage = () => {
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild className="btn-gold">
-                  <a href="/#contact">Prendre rendez-vous</a>
+                <Button onClick={scrollToContact} className="btn-gold">
+                  Prendre rendez-vous
                 </Button>
                 <Button asChild variant="outline" className="border-gold text-gold hover:bg-gold hover:text-white">
                   <a href="tel:+33662525687">
