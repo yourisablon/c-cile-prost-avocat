@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Users, Heart, Home, Shield, Baby, FileText, Phone, ArrowRight } from 'lucide-react';
+import { Users, Heart, Shield, Baby, FileText, Phone, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -12,6 +12,16 @@ import SEOHead from '@/components/SEOHead';
 const FamilyPage = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  const specialties = [
+    'Urgences familiales',
+    'Je ne vois plus mes enfants',
+    'Mes enfants sont en danger',
+    'Ordonnance de protection',
+    'Divorce et garde d\'enfants',
+    'Reconnaissance de paternité',
+    'Adoption',
+  ];
 
   const services = [
     {
@@ -44,11 +54,11 @@ const FamilyPage = () => {
       title: 'Protection des mineurs',
       description: 'Assistance éducative, placement, adoption, tutelle. Défense des intérêts de l\'enfant dans toutes les procédures.',
     },
-    {
-      icon: Home,
-      title: 'Liquidation du régime matrimonial',
-      description: 'Partage des biens après divorce ou décès. Expertise dans les régimes matrimoniaux complexes.',
-    },
+  ];
+
+  const stats = [
+    { label: 'Dates en urgence', value: '+30', suffix: 'obtenues devant le juge' },
+    { label: 'Dossiers plaidés', value: '+100', suffix: 'devant le JAF' },
   ];
 
   const scrollToContact = () => {
@@ -112,6 +122,18 @@ const FamilyPage = () => {
               <span className="text-gold text-sm font-medium uppercase tracking-wider">Expertises</span>
               <h2 className="section-title mt-2">Mes domaines d'intervention en droit de la famille</h2>
               <div className="w-16 h-1 bg-gold rounded-full mx-auto mt-4" />
+              
+              {/* Specialties list */}
+              <div className="flex flex-wrap justify-center gap-3 mt-8">
+                {specialties.map((specialty, index) => (
+                  <span
+                    key={index}
+                    className="px-4 py-2 bg-gold/10 text-gold border border-gold/20 rounded-full text-sm font-medium"
+                  >
+                    {specialty}
+                  </span>
+                ))}
+              </div>
             </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -134,8 +156,39 @@ const FamilyPage = () => {
           </div>
         </section>
 
+        {/* Stats Section */}
+        <section className="py-16 bg-secondary/30">
+          <div className="container-wide">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-2xl md:text-3xl font-serif font-medium text-foreground">Les chiffres du cabinet</h2>
+              <div className="w-16 h-1 bg-gold rounded-full mx-auto mt-4" />
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.1 * index }}
+                  className="bg-background rounded-2xl p-8 text-center shadow-soft"
+                >
+                  <div className="text-4xl md:text-5xl font-serif font-bold text-gold mb-2">{stat.value}</div>
+                  <div className="text-lg font-medium text-foreground mb-1">{stat.label}</div>
+                  <div className="text-sm text-muted-foreground">{stat.suffix}</div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Emotional Section */}
-        <section className="py-20 bg-secondary/30">
+        <section className="py-20 bg-background">
           <div className="container-narrow text-center">
             <h2 className="text-3xl md:text-4xl font-serif font-medium text-foreground mb-6">
               Une approche humaine du droit de la famille
