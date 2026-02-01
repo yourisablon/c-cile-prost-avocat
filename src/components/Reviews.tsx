@@ -149,7 +149,7 @@ const Reviews = () => {
           className="text-center mt-10"
         >
           <a
-            href="https://www.google.com/search?client=ms-android-samsung-ss&hs=4Hw9&sca_esv=a4272fd1b67d5ab0&sxsrf=ANbL-n4krh5QgjAB_U4s0qMdYU_zou8FyA:1769960170982&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qObp73uL7l7FLfRYkHxRMg8SRayXqSYDW3F_Fp2jaM2jdFQg2Gbiyhp1dMwbNLuSAEE5ZZ_eF9aDOEp1OEe3yUk28NbrHI_GcXJZtIVZ89OBYui-G41z3-uz-cQsn5E_3aTniBWI%3D&q=CECILE+PROST+-+AVOCAT+PENAL+ET+FAMILLE+Reviews&sa=X&ved=2ahUKEwjX4Ie6z7iSAxVA9LsIHThqEwkQ0bkNegQIVRAH&biw=980&bih=1910&dpr=3&aic=0"
+            href="https://www.google.com/maps/place/CECILE+PROST+-+AVOCAT+PENAL+ET+FAMILLE/@43.2906686,5.3771903,17z/data=!4m8!3m7!1s0x12cbcd51a01d10a7:0x49453a946650abd6!8m2!3d43.2906686!4d5.3797652!9m1!1b1!16s%2Fg%2F11t2dxz1z2"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gold hover:text-gold-dark transition-colors inline-flex items-center gap-2"
