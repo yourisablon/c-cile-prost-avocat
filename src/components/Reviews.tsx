@@ -1,15 +1,18 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef, useCallback, useEffect, useState } from 'react';
-import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
-import useEmblaCarousel from 'embla-carousel-react';
+import { useRef } from 'react';
+import { Star, Quote } from 'lucide-react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
 
 const Reviews = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' });
-  const [canScrollPrev, setCanScrollPrev] = useState(false);
-  const [canScrollNext, setCanScrollNext] = useState(false);
 
   // Real reviews from Google (5.0 - 40 avis)
   const reviews = [
@@ -52,27 +55,6 @@ const Reviews = () => {
     },
   ];
 
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
-
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setCanScrollPrev(emblaApi.canScrollPrev());
-    setCanScrollNext(emblaApi.canScrollNext());
-  }, [emblaApi]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    onSelect();
-    emblaApi.on('select', onSelect);
-    emblaApi.on('reInit', onSelect);
-  }, [emblaApi, onSelect]);
-
   return (
     <section className="section-padding bg-secondary/30" ref={ref}>
       <div className="container-wide">
@@ -104,15 +86,18 @@ const Reviews = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative"
+          className="px-8 md:px-12"
         >
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex gap-6">
+          <Carousel
+            opts={{
+              align: 'start',
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
               {reviews.map((review, index) => (
-                <div
-                  key={index}
-                  className="flex-[0_0_100%] min-w-0 md:flex-[0_0_calc(50%-12px)] lg:flex-[0_0_calc(33.333%-16px)]"
-                >
+                <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                   <div className="bg-background rounded-2xl p-6 md:p-8 shadow-soft relative h-full">
                     <Quote className="absolute top-6 right-6 w-8 h-8 text-gold/20" />
                     
@@ -148,26 +133,12 @@ const Reviews = () => {
                       />
                     </div>
                   </div>
-                </div>
+                </CarouselItem>
               ))}
-            </div>
-          </div>
-
-          {/* Navigation Buttons */}
-          <button
-            onClick={scrollPrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 bg-background shadow-lg rounded-full p-2 md:p-3 text-foreground hover:text-gold transition-colors z-10"
-            aria-label="Avis précédent"
-          >
-            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
-          </button>
-          <button
-            onClick={scrollNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 bg-background shadow-lg rounded-full p-2 md:p-3 text-foreground hover:text-gold transition-colors z-10"
-            aria-label="Avis suivant"
-          >
-            <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
-          </button>
+            </CarouselContent>
+            <CarouselPrevious className="-left-4 md:-left-6" />
+            <CarouselNext className="-right-4 md:-right-6" />
+          </Carousel>
         </motion.div>
 
         {/* CTA */}
