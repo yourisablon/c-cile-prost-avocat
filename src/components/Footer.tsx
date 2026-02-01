@@ -7,12 +7,24 @@ const Footer = () => {
 
   const handleExpertiseClick = (path: string) => {
     navigate(path);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
-  const handleCabinetClick = (anchor: string) => {
-    // Navigate to home page with anchor
-    window.location.href = `/${anchor}`;
+  const handleCabinetClick = (anchor: string, isContact: boolean = false) => {
+    if (isContact) {
+      // Contact should scroll to the contact section
+      navigate('/');
+      setTimeout(() => {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      // Other links go to top of home page
+      navigate('/');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
   };
 
   return (
@@ -97,7 +109,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <button 
-                  onClick={() => handleCabinetClick('#about')} 
+                  onClick={() => handleCabinetClick('#about', false)} 
                   className="text-primary-foreground/70 hover:text-gold transition-colors text-sm text-left"
                 >
                   À propos
@@ -105,7 +117,7 @@ const Footer = () => {
               </li>
               <li>
                 <button 
-                  onClick={() => handleCabinetClick('#honoraires')} 
+                  onClick={() => handleCabinetClick('#honoraires', false)} 
                   className="text-primary-foreground/70 hover:text-gold transition-colors text-sm text-left"
                 >
                   Honoraires
@@ -113,7 +125,7 @@ const Footer = () => {
               </li>
               <li>
                 <button 
-                  onClick={() => handleCabinetClick('#zone')} 
+                  onClick={() => handleCabinetClick('#zone', false)} 
                   className="text-primary-foreground/70 hover:text-gold transition-colors text-sm text-left"
                 >
                   Zone d'intervention
@@ -121,7 +133,7 @@ const Footer = () => {
               </li>
               <li>
                 <button 
-                  onClick={() => handleCabinetClick('#contact')} 
+                  onClick={() => handleCabinetClick('#contact', true)} 
                   className="text-primary-foreground/70 hover:text-gold transition-colors text-sm text-left"
                 >
                   Contact
