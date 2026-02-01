@@ -41,22 +41,10 @@ const Reviews = () => {
       text: 'Maître Prost m\'a accompagnée avec une efficacité remarquable et une grande humanité dans mes démarches pour faire respecter mes droits de mère. Grâce à son professionnalisme, son écoute et son engagement, j\'ai pu faire valoir mes droits.',
     },
     {
-      name: 'Sophie M.',
-      date: 'Octobre 2025',
+      name: 'Rachid Steven',
+      date: 'Juillet 2025',
       rating: 5,
-      text: 'Excellente avocate qui sait mettre en confiance dès le premier rendez-vous. Son approche humaine et son expertise en droit de la famille m\'ont permis de traverser une période difficile avec sérénité. Je la recommande vivement.',
-    },
-    {
-      name: 'Thomas B.',
-      date: 'Septembre 2025',
-      rating: 5,
-      text: 'Maître Prost est une avocate exceptionnelle. Elle m\'a défendu avec détermination lors d\'une comparution immédiate. Son professionnalisme et sa réactivité sont remarquables. Une avocate de confiance.',
-    },
-    {
-      name: 'Marie L.',
-      date: 'Août 2025',
-      rating: 5,
-      text: 'Je recommande Maître Prost sans hésitation. Elle a su m\'accompagner durant mon divorce avec beaucoup d\'humanité et de compétence. Toujours disponible pour répondre à mes questions, elle m\'a rassurée tout au long de la procédure.',
+      text: 'Je recommande maître Prost à 100 % ! C\'est une avocate très professionnelle, humaine et à l\'écoute. Dès le premier rendez-vous, elle prend le temps de comprendre votre situation avec beaucoup d\'empathie. La communication est rapide, fluide et toujours très claire. Son accompagnement est d\'une grande qualité, à la fois sur le plan juridique et humain. Une vraie référence dans son domaine !',
     },
   ];
 
