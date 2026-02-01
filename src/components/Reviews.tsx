@@ -46,6 +46,12 @@ const Reviews = () => {
       rating: 5,
       text: 'Je recommande maître Prost à 100 % ! C\'est une avocate très professionnelle, humaine et à l\'écoute. Dès le premier rendez-vous, elle prend le temps de comprendre votre situation avec beaucoup d\'empathie. La communication est rapide, fluide et toujours très claire. Son accompagnement est d\'une grande qualité, à la fois sur le plan juridique et humain. Une vraie référence dans son domaine !',
     },
+    {
+      name: 'Marion Lutz',
+      date: 'Janvier 2025',
+      rating: 5,
+      text: 'J\'ai contacté Maître Prost alors que je me trouvais dans une situation familiale d\'urgence (départ précipité du domicile dans un contexte de violences conjugales). Elle a trouvé d\'emblée une réponse à ma situation en terme de protection et de saisie du juge aux affaires familiales. Sa compréhension juridique et humaine de la situation m\'a été d\'un grand secours. Elle a fait un travail sérieux et solide, et a répondu aux problématiques concrètes qui se posaient à moi au fil de l\'eau. Je la recommande vivement et la remercie infiniment pour son accompagnement !',
+    },
   ];
 
   return (
