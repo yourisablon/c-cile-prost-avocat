@@ -30,7 +30,7 @@ const PenalPage = () => {
     {
       icon: Clock,
       title: 'Enquêtes / Instructions',
-      description: 'Accompagnement durant les phases d\'enquête et d\'instruction. Préparation rigoureuse de votre dossier à chaque étape de la procédure.',
+      description: 'Assistance lors des auditions, confrontations, reconstitutions...',
     },
     {
       icon: Gavel,
