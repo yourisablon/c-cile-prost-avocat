@@ -147,23 +147,6 @@ const Reviews = () => {
           </Carousel>
         </motion.div>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center mt-10"
-        >
-          <a
-            href="https://www.google.com/maps/place/CECILE+PROST+-+AVOCAT+PENAL+ET+FAMILLE/@43.2906686,5.3771903,17z/data=!4m8!3m7!1s0x12cbcd51a01d10a7:0x49453a946650abd6!8m2!3d43.2906686!4d5.3797652!9m1!1b1!16s%2Fg%2F11t2dxz1z2"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gold hover:text-gold-dark transition-colors inline-flex items-center gap-2"
-          >
-            Voir tous les avis sur Google
-            <span>→</span>
-          </a>
-        </motion.div>
       </div>
     </section>
   );
