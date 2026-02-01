@@ -13,6 +13,14 @@ const PenalPage = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
+  const specialties = [
+    'Violences',
+    'Violences intrafamiliales',
+    'Non représentation d\'enfant',
+    'Infractions sexuelles',
+    'Crimes intrafamiliaux',
+  ];
+
   const services = [
     {
       icon: AlertTriangle,
@@ -21,18 +29,8 @@ const PenalPage = () => {
     },
     {
       icon: Clock,
-      title: 'Comparution immédiate',
-      description: 'Défense urgente lors des procédures accélérées. Préparation rapide et efficace de votre dossier pour la meilleure défense possible.',
-    },
-    {
-      icon: Shield,
-      title: 'Défense prévenu',
-      description: 'Représentation et défense de vos intérêts si vous êtes mis en cause dans une procédure pénale, à tous les stades de la procédure.',
-    },
-    {
-      icon: Scale,
-      title: 'Défense victime',
-      description: 'Accompagnement et constitution de partie civile pour faire valoir vos droits et obtenir réparation du préjudice subi.',
+      title: 'Enquêtes / Instructions',
+      description: 'Accompagnement durant les phases d\'enquête et d\'instruction. Préparation rigoureuse de votre dossier à chaque étape de la procédure.',
     },
     {
       icon: Gavel,
@@ -49,6 +47,12 @@ const PenalPage = () => {
       title: 'Aménagement de peine',
       description: 'Demandes de libération conditionnelle, placement sous surveillance électronique, semi-liberté et autres aménagements.',
     },
+  ];
+
+  const stats = [
+    { label: 'Garde à vue', value: '+50', suffix: 'réalisées' },
+    { label: 'Tribunal correctionnel', value: '+50', suffix: 'dossiers plaidés' },
+    { label: 'Cour d\'assises', value: '3', suffix: 'dossiers plaidés' },
   ];
 
   const scrollToContact = () => {
@@ -112,6 +116,18 @@ const PenalPage = () => {
               <span className="text-gold text-sm font-medium uppercase tracking-wider">Expertises</span>
               <h2 className="section-title mt-2">Mes domaines d'intervention en droit pénal</h2>
               <div className="w-16 h-1 bg-gold rounded-full mx-auto mt-4" />
+              
+              {/* Specialties list */}
+              <div className="flex flex-wrap justify-center gap-3 mt-8">
+                {specialties.map((specialty, index) => (
+                  <span
+                    key={index}
+                    className="px-4 py-2 bg-gold/10 text-gold border border-gold/20 rounded-full text-sm font-medium"
+                  >
+                    {specialty}
+                  </span>
+                ))}
+              </div>
             </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -128,6 +144,37 @@ const PenalPage = () => {
                   </div>
                   <h3 className="text-xl font-serif font-medium text-foreground mb-3">{service.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Stats Section */}
+        <section className="py-16 bg-secondary/30">
+          <div className="container-wide">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-2xl md:text-3xl font-serif font-medium text-foreground">Les chiffres du cabinet</h2>
+              <div className="w-16 h-1 bg-gold rounded-full mx-auto mt-4" />
+            </motion.div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.1 * index }}
+                  className="bg-background rounded-2xl p-8 text-center shadow-soft"
+                >
+                  <div className="text-4xl md:text-5xl font-serif font-bold text-gold mb-2">{stat.value}</div>
+                  <div className="text-lg font-medium text-foreground mb-1">{stat.label}</div>
+                  <div className="text-sm text-muted-foreground">{stat.suffix}</div>
                 </motion.div>
               ))}
             </div>
