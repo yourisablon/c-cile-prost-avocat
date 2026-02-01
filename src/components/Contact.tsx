@@ -4,6 +4,10 @@ import { useRef, useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
+// IMPORTANT: Remplacez cette clé par votre clé Web3Forms
+// Créez votre clé gratuite sur https://web3forms.com avec l'email avocat.prost@gmail.com
+const WEB3FORMS_ACCESS_KEY = 'VOTRE_CLE_WEB3FORMS';
+
 const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
@@ -21,16 +25,43 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `Nouveau message de ${formData.name} - Cabinet Cécile Prost`,
+          from_name: 'Site Cabinet Cécile Prost',
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
 
-    toast({
-      title: 'Message envoyé',
-      description: 'Maître Prost vous répondra dans les plus brefs délais.',
-    });
+      const result = await response.json();
 
-    setFormData({ name: '', phone: '', email: '', message: '' });
-    setIsSubmitting(false);
+      if (result.success) {
+        toast({
+          title: 'Message envoyé',
+          description: 'Maître Prost vous répondra dans les plus brefs délais.',
+        });
+        setFormData({ name: '', phone: '', email: '', message: '' });
+      } else {
+        throw new Error('Erreur lors de l\'envoi');
+      }
+    } catch (error) {
+      toast({
+        title: 'Erreur',
+        description: 'Une erreur est survenue. Veuillez réessayer ou appeler directement.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
