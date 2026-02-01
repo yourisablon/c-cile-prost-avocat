@@ -26,9 +26,19 @@ const Header = () => {
     { href: '/#contact', label: 'Contact' },
   ];
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (href: string, isContactLink: boolean = false) => {
     setIsMobileMenuOpen(false);
-    if (href.startsWith('/#')) {
+    
+    if (isContactLink) {
+      // Contact link should scroll to the contact section
+      if (location.pathname !== '/') {
+        window.location.href = '/#contact';
+      } else {
+        const element = document.querySelector('#contact');
+        element?.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else if (href.startsWith('/#')) {
+      // Other anchor links on home page
       if (location.pathname !== '/') {
         window.location.href = href;
       } else {
@@ -36,6 +46,11 @@ const Header = () => {
         element?.scrollIntoView({ behavior: 'smooth' });
       }
     }
+  };
+
+  const handlePageNavigation = () => {
+    setIsMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   return (
@@ -67,6 +82,7 @@ const Header = () => {
                   <Link
                     key={link.href}
                     to={link.href}
+                    onClick={handlePageNavigation}
                     className="text-sm font-medium text-foreground/80 hover:text-gold transition-colors"
                   >
                     {link.label}
@@ -77,7 +93,7 @@ const Header = () => {
                     href={link.href}
                     onClick={(e) => {
                       e.preventDefault();
-                      handleNavClick(link.href);
+                      handleNavClick(link.href, link.href === '/#contact');
                     }}
                     className="text-sm font-medium text-foreground/80 hover:text-gold transition-colors"
                   >
@@ -122,7 +138,7 @@ const Header = () => {
                   <Link
                     key={link.href}
                     to={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={handlePageNavigation}
                     className="text-xl font-serif font-medium text-foreground hover:text-gold transition-colors"
                   >
                     {link.label}
@@ -133,7 +149,7 @@ const Header = () => {
                     href={link.href}
                     onClick={(e) => {
                       e.preventDefault();
-                      handleNavClick(link.href);
+                      handleNavClick(link.href, link.href === '/#contact');
                     }}
                     className="text-xl font-serif font-medium text-foreground hover:text-gold transition-colors"
                   >
