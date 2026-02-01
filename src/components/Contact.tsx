@@ -4,9 +4,7 @@ import { useRef, useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
-// IMPORTANT: Remplacez cette clé par votre clé Web3Forms
-// Créez votre clé gratuite sur https://web3forms.com avec l'email avocat.prost@gmail.com
-const WEB3FORMS_ACCESS_KEY = 'VOTRE_CLE_WEB3FORMS';
+const WEB3FORMS_ACCESS_KEY = '3f39048a-9c31-4b7b-af16-74d81f7a6efc';
 
 const Contact = () => {
   const ref = useRef(null);
